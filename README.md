@@ -72,7 +72,7 @@ Testcontainers usa PostgreSQL/Redis reais. Testes cobrem corridas, falhas, limit
 
 **ML_NOT_INCLUDED_IN_V0.1.0**: nenhum candidato demonstrou ganho mensurado que justifique a complexidade. Kafka também não foi necessário. Sem banco/cliente/cartão real, microserviços artificiais, cloud deployment ou alegação de exactly-once distribuído. Redis standalone; Basic apenas em localhost; dados de auditoria precisam de estratégia operacional de arquivamento antes de uso prolongado. [Limitações de segurança](docs/security.md).
 
-Licença MIT. PR feature → dev; esta missão não faz merge, tag ou release. v0.2.0 é apenas possibilidade futura de Risk Operations Console, sem implementação nesta entrega.
+Licença MIT. A foundation v0.1.0 reúne as capacidades e evidências descritas acima; consulte a [Release v0.1.0](https://github.com/GuiNovaisz/riskshield-java-fraud/releases/tag/v0.1.0). v0.2.0 é apenas possibilidade futura de Risk Operations Console, sem implementação nesta entrega.
 
 The complete English version follows below.
 
@@ -109,4 +109,4 @@ Same identity/payload returns the original decision; conflicting payload returns
 
 OpenTelemetry/Tempo traces, Prometheus metrics and provisioned **RiskShield Overview** expose the pipeline. See [architecture](docs/architecture.md), [threat model](docs/threat-model.md), [ADRs](docs/adr), [versions](docs/versions.md), [operations](docs/operations.md).
 
-**ML_NOT_INCLUDED_IN_V0.1.0**: no independently measured model benefit justifies inference/governance complexity. Kafka is also omitted. Limitations: synthetic-only data, standalone Redis, localhost-only Basic authentication, trusted database owner, bounded history and no implemented audit archival. No real payment integration, cloud deployment, distributed exactly-once claim or production fraud-loss reduction. MIT license. Feature→dev PR remains unmerged; no tag/release or v0.2.0 implementation belongs to this mission.
+**ML_NOT_INCLUDED_IN_V0.1.0**: no independently measured model benefit justifies inference/governance complexity. Kafka is also omitted. Limitations: synthetic-only data, standalone Redis, localhost-only Basic authentication, trusted database owner, bounded history and no implemented audit archival. No real payment integration, cloud deployment, distributed exactly-once claim or production fraud-loss reduction. MIT license. The v0.1.0 foundation comprises the capabilities and evidence described above; see [Release v0.1.0](https://github.com/GuiNovaisz/riskshield-java-fraud/releases/tag/v0.1.0). A future v0.2.0 Risk Operations Console is only a possibility and is not implemented in this release.
