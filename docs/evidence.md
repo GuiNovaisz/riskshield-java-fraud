@@ -1,5 +1,7 @@
 # RiskShield v0.1.0 — executed evidence
 
+Historical foundation-review record, captured on 2026-11-21 before feature → dev integration. The no-merge/no-tag/no-release statements below describe that completed mission, not the current publication state. See README for the current release.
+
 Evidence date: 2026-11-21, America/Sao_Paulo. Source verification commit: `7eb381647a3419425f76abe4f1b8ed76c0c610ea`. Later evidence/documentation commits do not change decision-domain behavior. Final branch SHA and final CI run are reported in the delivery report and PR checks, avoiding a self-referential commit hash in this file.
 
 Environment: Windows PowerShell 7, isolated Temurin 21.0.13.1+2, Maven Wrapper 3.9.16, Docker Desktop Linux engine 29.9.2; Testcontainers PostgreSQL 18.1 and Redis 8.4.0. No H2, no browser/GUI, no stress test. Source research and versions: references.md / versions.md. Environment-specific HTTP load includes BCrypt.
