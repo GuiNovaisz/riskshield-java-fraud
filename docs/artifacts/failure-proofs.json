@@ -1,0 +1,13 @@
+{
+  "postgres": {
+    "status": 503,
+    "liveness": "UP"
+  },
+  "redis": {
+    "liveness": "UP",
+    "decision": "REVIEW",
+    "readiness": "UP",
+    "degraded": true
+  },
+  "observedAt": "2026-11-21T07:22:33.8824688Z"
+}
