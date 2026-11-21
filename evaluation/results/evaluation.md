@@ -7,7 +7,7 @@ Seed: 20261121. Dataset: 8168. No production fraud claims. Positive = REVIEW/BLO
 - reviewThreshold: 30
 - blockThreshold: 65
 - count: 3277
-- confusionMatrix: {FP=55, FN=55, TP=63, TN=3104}
+- confusionMatrix: {FN=55, FP=55, TN=3104, TP=63}
 - precision: 0.5338983050847458
 - recall: 0.5338983050847458
 - F1: 0.5338983050847458

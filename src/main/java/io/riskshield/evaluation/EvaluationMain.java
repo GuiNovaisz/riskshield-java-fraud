@@ -71,7 +71,7 @@ public final class EvaluationMain {
         }
         double precision=divide(tp,tp+fp),recall=divide(tp,tp+fn);
         Map<String,Object> m=new LinkedHashMap<>();m.put("reviewThreshold",review);m.put("blockThreshold",block);m.put("count",rows.size());
-        m.put("confusionMatrix",Map.of("TP",tp,"FP",fp,"TN",tn,"FN",fn));m.put("precision",precision);m.put("recall",recall);m.put("F1",precision+recall==0?0:2*precision*recall/(precision+recall));
+        m.put("confusionMatrix",new TreeMap<>(Map.of("TP",tp,"FP",fp,"TN",tn,"FN",fn)));m.put("precision",precision);m.put("recall",recall);m.put("F1",precision+recall==0?0:2*precision*recall/(precision+recall));
         m.put("FPR",divide(fp,fp+tn));m.put("FNR",divide(fn,fn+tp));m.put("reviewRate",divide(reviews,rows.size()));m.put("blockRate",divide(blocks,rows.size()));m.put("approvalRate",divide(rows.size()-reviews-blocks,rows.size()));
         m.put("fraudAmountFlaggedCents",fraudCaptured);m.put("legitimateAmountReviewedCents",legitReview);m.put("legitimateAmountBlockedCents",legitBlock);m.put("demoCost",fp*costs.falsePositive()+fn*costs.falseNegative()+reviews*costs.review());return m;
     }

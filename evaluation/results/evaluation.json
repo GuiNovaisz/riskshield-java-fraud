@@ -17,11 +17,96 @@
   },
   "ruleVersion" : "baseline-1",
   "policyVersion" : "baseline-1",
+  "configuration" : {
+    "version" : "baseline-1",
+    "effectiveFrom" : "2020-01-01T00:00:00Z",
+    "effectiveUntil" : "2100-01-01T00:00:00Z",
+    "reviewThreshold" : 30,
+    "blockThreshold" : 65,
+    "rules" : [ {
+      "id" : "NEW_DEVICE",
+      "version" : "1",
+      "description" : "Device absent from prior 30-day history",
+      "enabled" : true,
+      "priority" : 10,
+      "signal" : "NEW_DEVICE",
+      "threshold" : 1,
+      "contribution" : 18,
+      "effectiveFrom" : "2020-01-01T00:00:00Z",
+      "effectiveUntil" : "2100-01-01T00:00:00Z"
+    }, {
+      "id" : "NEW_MERCHANT",
+      "version" : "1",
+      "description" : "Merchant absent from prior 30-day history",
+      "enabled" : true,
+      "priority" : 20,
+      "signal" : "NEW_MERCHANT",
+      "threshold" : 1,
+      "contribution" : 8,
+      "effectiveFrom" : "2020-01-01T00:00:00Z",
+      "effectiveUntil" : "2100-01-01T00:00:00Z"
+    }, {
+      "id" : "NEW_COUNTRY",
+      "version" : "1",
+      "description" : "Country absent from prior 30-day history",
+      "enabled" : true,
+      "priority" : 30,
+      "signal" : "NEW_COUNTRY",
+      "threshold" : 1,
+      "contribution" : 12,
+      "effectiveFrom" : "2020-01-01T00:00:00Z",
+      "effectiveUntil" : "2100-01-01T00:00:00Z"
+    }, {
+      "id" : "AMOUNT_SPIKE",
+      "version" : "1",
+      "description" : "At least 5 prior events and amount exceeds 3x personal mean",
+      "enabled" : true,
+      "priority" : 40,
+      "signal" : "AMOUNT_SPIKE",
+      "threshold" : 1,
+      "contribution" : 32,
+      "effectiveFrom" : "2020-01-01T00:00:00Z",
+      "effectiveUntil" : "2100-01-01T00:00:00Z"
+    }, {
+      "id" : "VELOCITY_SPIKE",
+      "version" : "1",
+      "description" : "At least 6 accepted attempts in (t-1m,t] including current",
+      "enabled" : true,
+      "priority" : 50,
+      "signal" : "CUSTOMER_1M",
+      "threshold" : 6,
+      "contribution" : 35,
+      "effectiveFrom" : "2020-01-01T00:00:00Z",
+      "effectiveUntil" : "2100-01-01T00:00:00Z"
+    }, {
+      "id" : "SUSTAINED_VELOCITY",
+      "version" : "1",
+      "description" : "At least 12 accepted attempts in (t-5m,t]",
+      "enabled" : true,
+      "priority" : 60,
+      "signal" : "CUSTOMER_5M",
+      "threshold" : 12,
+      "contribution" : 20,
+      "effectiveFrom" : "2020-01-01T00:00:00Z",
+      "effectiveUntil" : "2100-01-01T00:00:00Z"
+    }, {
+      "id" : "DEVICE_SHARING",
+      "version" : "1",
+      "description" : "At least 4 customers using device in (t-1h,t]",
+      "enabled" : true,
+      "priority" : 70,
+      "signal" : "DEVICE_SHARING",
+      "threshold" : 4,
+      "contribution" : 35,
+      "effectiveFrom" : "2020-01-01T00:00:00Z",
+      "effectiveUntil" : "2100-01-01T00:00:00Z"
+    } ]
+  },
   "featureVersion" : "features-1",
   "modelVersion" : "NONE",
   "MLDecision" : "ML_NOT_INCLUDED_IN_V0.1.0",
-  "applicationCommit" : "UNCOMMITTED",
-  "generatedAt" : "2026-11-21T00:00:00Z",
+  "applicationCommit" : "d3822b1889488954d9a743e873988b49c413a613",
+  "generatedAt" : "2026-11-21T07:15:10.0170315Z",
   "costs" : {
     "falsePositive" : 10,
     "falseNegative" : 100,
@@ -33,10 +118,10 @@
     "blockThreshold" : 65,
     "count" : 4891,
     "confusionMatrix" : {
-      "FP" : 59,
       "FN" : 65,
-      "TP" : 61,
-      "TN" : 4706
+      "FP" : 59,
+      "TN" : 4706,
+      "TP" : 61
     },
     "precision" : 0.5083333333333333,
     "recall" : 0.48412698412698413,
@@ -55,10 +140,10 @@
     "blockThreshold" : 70,
     "count" : 4891,
     "confusionMatrix" : {
-      "FP" : 59,
       "FN" : 65,
-      "TP" : 61,
-      "TN" : 4706
+      "FP" : 59,
+      "TN" : 4706,
+      "TP" : 61
     },
     "precision" : 0.5083333333333333,
     "recall" : 0.48412698412698413,
@@ -77,10 +162,10 @@
     "blockThreshold" : 85,
     "count" : 4891,
     "confusionMatrix" : {
-      "FP" : 59,
       "FN" : 65,
-      "TP" : 61,
-      "TN" : 4706
+      "FP" : 59,
+      "TN" : 4706,
+      "TP" : 61
     },
     "precision" : 0.5083333333333333,
     "recall" : 0.48412698412698413,
@@ -99,10 +184,10 @@
     "blockThreshold" : 65,
     "count" : 4891,
     "confusionMatrix" : {
-      "FP" : 59,
       "FN" : 104,
-      "TP" : 22,
-      "TN" : 4706
+      "FP" : 59,
+      "TN" : 4706,
+      "TP" : 22
     },
     "precision" : 0.2716049382716049,
     "recall" : 0.1746031746031746,
@@ -121,10 +206,10 @@
     "blockThreshold" : 70,
     "count" : 4891,
     "confusionMatrix" : {
-      "FP" : 59,
       "FN" : 104,
-      "TP" : 22,
-      "TN" : 4706
+      "FP" : 59,
+      "TN" : 4706,
+      "TP" : 22
     },
     "precision" : 0.2716049382716049,
     "recall" : 0.1746031746031746,
@@ -143,10 +228,10 @@
     "blockThreshold" : 85,
     "count" : 4891,
     "confusionMatrix" : {
-      "FP" : 59,
       "FN" : 104,
-      "TP" : 22,
-      "TN" : 4706
+      "FP" : 59,
+      "TN" : 4706,
+      "TP" : 22
     },
     "precision" : 0.2716049382716049,
     "recall" : 0.1746031746031746,
@@ -165,10 +250,10 @@
     "blockThreshold" : 65,
     "count" : 4891,
     "confusionMatrix" : {
-      "FP" : 59,
       "FN" : 104,
-      "TP" : 22,
-      "TN" : 4706
+      "FP" : 59,
+      "TN" : 4706,
+      "TP" : 22
     },
     "precision" : 0.2716049382716049,
     "recall" : 0.1746031746031746,
@@ -187,10 +272,10 @@
     "blockThreshold" : 70,
     "count" : 4891,
     "confusionMatrix" : {
-      "FP" : 59,
       "FN" : 104,
-      "TP" : 22,
-      "TN" : 4706
+      "FP" : 59,
+      "TN" : 4706,
+      "TP" : 22
     },
     "precision" : 0.2716049382716049,
     "recall" : 0.1746031746031746,
@@ -209,10 +294,10 @@
     "blockThreshold" : 85,
     "count" : 4891,
     "confusionMatrix" : {
-      "FP" : 59,
       "FN" : 104,
-      "TP" : 22,
-      "TN" : 4706
+      "FP" : 59,
+      "TN" : 4706,
+      "TP" : 22
     },
     "precision" : 0.2716049382716049,
     "recall" : 0.1746031746031746,
@@ -231,10 +316,10 @@
     "blockThreshold" : 65,
     "count" : 4891,
     "confusionMatrix" : {
-      "FP" : 2,
       "FN" : 125,
-      "TP" : 1,
-      "TN" : 4763
+      "FP" : 2,
+      "TN" : 4763,
+      "TP" : 1
     },
     "precision" : 0.3333333333333333,
     "recall" : 0.007936507936507936,
@@ -253,10 +338,10 @@
     "blockThreshold" : 70,
     "count" : 4891,
     "confusionMatrix" : {
-      "FP" : 2,
       "FN" : 125,
-      "TP" : 1,
-      "TN" : 4763
+      "FP" : 2,
+      "TN" : 4763,
+      "TP" : 1
     },
     "precision" : 0.3333333333333333,
     "recall" : 0.007936507936507936,
@@ -275,10 +360,10 @@
     "blockThreshold" : 85,
     "count" : 4891,
     "confusionMatrix" : {
-      "FP" : 2,
       "FN" : 125,
-      "TP" : 1,
-      "TN" : 4763
+      "FP" : 2,
+      "TN" : 4763,
+      "TP" : 1
     },
     "precision" : 0.3333333333333333,
     "recall" : 0.007936507936507936,
@@ -298,10 +383,10 @@
     "blockThreshold" : 65,
     "count" : 4891,
     "confusionMatrix" : {
-      "FP" : 59,
       "FN" : 65,
-      "TP" : 61,
-      "TN" : 4706
+      "FP" : 59,
+      "TN" : 4706,
+      "TP" : 61
     },
     "precision" : 0.5083333333333333,
     "recall" : 0.48412698412698413,
@@ -321,10 +406,10 @@
     "blockThreshold" : 65,
     "count" : 4891,
     "confusionMatrix" : {
-      "FP" : 59,
       "FN" : 65,
-      "TP" : 61,
-      "TN" : 4706
+      "FP" : 59,
+      "TN" : 4706,
+      "TP" : 61
     },
     "precision" : 0.5083333333333333,
     "recall" : 0.48412698412698413,
@@ -344,10 +429,10 @@
     "blockThreshold" : 65,
     "count" : 3277,
     "confusionMatrix" : {
-      "FP" : 55,
       "FN" : 55,
-      "TP" : 63,
-      "TN" : 3104
+      "FP" : 55,
+      "TN" : 3104,
+      "TP" : 63
     },
     "precision" : 0.5338983050847458,
     "recall" : 0.5338983050847458,
