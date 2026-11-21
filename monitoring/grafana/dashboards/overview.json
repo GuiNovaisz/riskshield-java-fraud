@@ -1,0 +1,234 @@
+{
+  "version": 1,
+  "schemaVersion": 41,
+  "title": "RiskShield Overview",
+  "time": {
+    "to": "now",
+    "from": "now-15m"
+  },
+  "panels": [
+    {
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "title": "Evaluations/s",
+      "gridPos": {
+        "y": 0,
+        "h": 8,
+        "x": 0,
+        "w": 12
+      },
+      "targets": [
+        {
+          "expr": "sum(rate(risk_decisions_total[1m]))",
+          "refId": "A"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "title": "Decision distribution",
+      "gridPos": {
+        "y": 0,
+        "h": 8,
+        "x": 12,
+        "w": 12
+      },
+      "targets": [
+        {
+          "expr": "sum by(decision)(rate(risk_decisions_total[1m]))",
+          "refId": "A"
+        }
+      ],
+      "id": 2
+    },
+    {
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "title": "Decision latency p50/p95/p99",
+      "gridPos": {
+        "y": 8,
+        "h": 8,
+        "x": 0,
+        "w": 12
+      },
+      "targets": [
+        {
+          "legendFormat": "0.50",
+          "refId": "0.50",
+          "expr": "histogram_quantile(0.50,sum by(le)(rate(risk_stage_seconds_bucket{stage=\"total\"}[1m])))"
+        },
+        {
+          "legendFormat": "0.95",
+          "refId": "0.95",
+          "expr": "histogram_quantile(0.95,sum by(le)(rate(risk_stage_seconds_bucket{stage=\"total\"}[1m])))"
+        },
+        {
+          "legendFormat": "0.99",
+          "refId": "0.99",
+          "expr": "histogram_quantile(0.99,sum by(le)(rate(risk_stage_seconds_bucket{stage=\"total\"}[1m])))"
+        }
+      ],
+      "id": 3
+    },
+    {
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "title": "Redis latency",
+      "gridPos": {
+        "y": 8,
+        "h": 8,
+        "x": 12,
+        "w": 12
+      },
+      "targets": [
+        {
+          "expr": "histogram_quantile(0.95,sum by(le)(rate(risk_stage_seconds_bucket{stage=\"velocity\"}[1m])))",
+          "refId": "A"
+        }
+      ],
+      "id": 4
+    },
+    {
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "title": "Redis errors",
+      "gridPos": {
+        "y": 16,
+        "h": 8,
+        "x": 0,
+        "w": 12
+      },
+      "targets": [
+        {
+          "expr": "sum(rate(risk_velocity_errors_total[1m]))",
+          "refId": "A"
+        }
+      ],
+      "id": 5
+    },
+    {
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "title": "Degraded decisions",
+      "gridPos": {
+        "y": 16,
+        "h": 8,
+        "x": 12,
+        "w": 12
+      },
+      "targets": [
+        {
+          "expr": "sum(rate(risk_degraded_decisions_total[1m]))",
+          "refId": "A"
+        }
+      ],
+      "id": 6
+    },
+    {
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "title": "Rule firing",
+      "gridPos": {
+        "y": 24,
+        "h": 8,
+        "x": 0,
+        "w": 12
+      },
+      "targets": [
+        {
+          "expr": "sum by(rule)(rate(risk_rules_fired_total[1m]))",
+          "refId": "A"
+        }
+      ],
+      "id": 7
+    },
+    {
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "title": "Shadow disagreements",
+      "gridPos": {
+        "y": 24,
+        "h": 8,
+        "x": 12,
+        "w": 12
+      },
+      "targets": [
+        {
+          "expr": "sum(rate(risk_shadow_disagreements_total[1m]))",
+          "refId": "A"
+        }
+      ],
+      "id": 8
+    },
+    {
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "title": "Feedback labels",
+      "gridPos": {
+        "y": 32,
+        "h": 8,
+        "x": 0,
+        "w": 12
+      },
+      "targets": [
+        {
+          "expr": "sum by(label)(rate(risk_feedback_total[1m]))",
+          "refId": "A"
+        }
+      ],
+      "id": 9
+    },
+    {
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "title": "Server errors",
+      "gridPos": {
+        "y": 32,
+        "h": 8,
+        "x": 12,
+        "w": 12
+      },
+      "targets": [
+        {
+          "expr": "sum(rate(http_server_requests_seconds_count{status=~\"5..\"}[1m]))",
+          "refId": "A"
+        }
+      ],
+      "id": 10
+    }
+  ],
+  "uid": "riskshield-overview",
+  "refresh": "5s"
+}

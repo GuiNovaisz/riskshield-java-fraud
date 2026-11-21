@@ -1,0 +1,74 @@
+{
+  "java": "21.0.13.1+2",
+  "command": "./mvnw.cmd -B -ntp clean verify",
+  "observedAt": "2026-11-21T07:22:53.6583399Z",
+  "suites": [
+    {
+      "failures": 0,
+      "tests": 5,
+      "skipped": 0,
+      "cases": [
+        "deterministicExplainableAndBounded",
+        "unavailableEvidenceNeverApproves",
+        "ruleEvasionAndCombinedSignals",
+        "effectiveDatingAndValidation",
+        "behavioralTimeFilteringAndNoLabelInput"
+      ],
+      "errors": 0,
+      "suite": "io.riskshield.domain.DecisionEngineTest"
+    },
+    {
+      "failures": 0,
+      "tests": 1,
+      "skipped": 0,
+      "cases": [
+        "frozenCalibratedScenarios"
+      ],
+      "errors": 0,
+      "suite": "io.riskshield.domain.GoldenTest"
+    },
+    {
+      "failures": 0,
+      "tests": 3,
+      "skipped": 0,
+      "cases": [
+        "confusionMatrixArithmeticOnKnownCases",
+        "deterministicSeedImbalanceAndLabelIsolation",
+        "independentJvmReportsAreByteReproducible"
+      ],
+      "errors": 0,
+      "suite": "io.riskshield.evaluation.EvaluationTest"
+    },
+    {
+      "failures": 0,
+      "tests": 6,
+      "skipped": 0,
+      "cases": [
+        "engineCannotManageRules",
+        "unauthenticatedIs401",
+        "unknownPropertiesAndInvalidPayloadAre400",
+        "oversizedAuthenticatedRequestIs413",
+        "analystCannotIntakeAndAuditorCannotLabel",
+        "realBasicCredentialsUseConfiguredEncoder"
+      ],
+      "errors": 0,
+      "suite": "io.riskshield.SecurityTest"
+    },
+    {
+      "failures": 0,
+      "tests": 7,
+      "skipped": 0,
+      "cases": [
+        "amountDeviceAndLateEventsAreSafe",
+        "concurrentUniqueAttemptsKeepAllAuditAndVelocity",
+        "idempotencyConflictAndConcurrentDuplicates",
+        "immutableAuditFeedbackAndLabelLeakage",
+        "redisAtomicWindowsTtlAndOutOfOrder",
+        "redisOutageAndDatabaseFailureContracts",
+        "zGovernanceMakerCheckerShadowAndVersionHistory"
+      ],
+      "errors": 0,
+      "suite": "io.riskshield.FoundationIT"
+    }
+  ]
+}

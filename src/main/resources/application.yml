@@ -1,0 +1,73 @@
+spring:
+  application:
+    name: riskshield
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:55432/riskshield}
+    username: ${DB_USER:riskshield}
+    password: ${DB_PASSWORD}
+    hikari:
+      maximum-pool-size: 12
+      connection-timeout: 3000
+      connection-init-sql: SET statement_timeout = '8s'
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:56379}
+      timeout: 500ms
+      connect-timeout: 500ms
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+  mvc:
+    problemdetails:
+      enabled: true
+  lifecycle:
+    timeout-per-shutdown-phase: 20s
+server:
+  port: 8080
+  shutdown: graceful
+  max-http-request-header-size: 8KB
+  tomcat:
+    threads:
+      max: 40
+    max-connections: 128
+management:
+  otlp:
+    metrics:
+      export:
+        enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      group:
+        readiness:
+          include: readinessState,db
+  tracing:
+    sampling:
+      probability: 1.0
+  metrics:
+    distribution:
+      percentiles-histogram:
+        risk.stage: true
+        http.server.requests: true
+  opentelemetry:
+    tracing:
+      export:
+        otlp:
+          endpoint: ${OTEL_ENDPOINT:http://localhost:4318/v1/traces}
+logging:
+  structured:
+    format:
+      console: ecs
+risk:
+  users:
+    engine: ${ENGINE_PASSWORD}
+    analyst: ${ANALYST_PASSWORD}
+    auditor: ${AUDITOR_PASSWORD}
+    admin-a: ${ADMIN_A_PASSWORD}
+    admin-b: ${ADMIN_B_PASSWORD}

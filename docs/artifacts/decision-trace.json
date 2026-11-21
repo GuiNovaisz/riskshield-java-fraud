@@ -1,0 +1,469 @@
+{
+  "batches": [
+    {
+      "resource": {
+        "attributes": [
+          {
+            "key": "telemetry.sdk.language",
+            "value": {
+              "stringValue": "java"
+            }
+          },
+          {
+            "key": "telemetry.sdk.name",
+            "value": {
+              "stringValue": "opentelemetry"
+            }
+          },
+          {
+            "key": "telemetry.sdk.version",
+            "value": {
+              "stringValue": "1.68.0"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "riskshield"
+            }
+          }
+        ]
+      },
+      "scopeSpans": [
+        {
+          "scope": {
+            "name": "org.springframework.boot",
+            "version": "4.2.0"
+          },
+          "spans": [
+            {
+              "traceId": "IHNiGF7+Mx9SEJwVvXOX4A==",
+              "spanId": "yYGwUDelLe4=",
+              "parentSpanId": "vBJMvheLp10=",
+              "name": "risk.features",
+              "kind": "SPAN_KIND_INTERNAL",
+              "startTimeUnixNano": "1795245482025003748",
+              "endTimeUnixNano": "1795245482028800428",
+              "status": {}
+            },
+            {
+              "traceId": "IHNiGF7+Mx9SEJwVvXOX4A==",
+              "spanId": "aUhgM7brFhA=",
+              "parentSpanId": "vBJMvheLp10=",
+              "name": "risk.rules",
+              "kind": "SPAN_KIND_INTERNAL",
+              "startTimeUnixNano": "1795245482029267246",
+              "endTimeUnixNano": "1795245482029320958",
+              "status": {}
+            },
+            {
+              "traceId": "IHNiGF7+Mx9SEJwVvXOX4A==",
+              "spanId": "qQhEgXOQYRY=",
+              "parentSpanId": "yYGwUDelLe4=",
+              "name": "risk.velocity",
+              "kind": "SPAN_KIND_INTERNAL",
+              "startTimeUnixNano": "1795245482025010969",
+              "endTimeUnixNano": "1795245482027284043",
+              "status": {}
+            },
+            {
+              "traceId": "IHNiGF7+Mx9SEJwVvXOX4A==",
+              "spanId": "0V5NIcv1WmA=",
+              "parentSpanId": "nRi1e5Qb0f8=",
+              "name": "security filterchain before",
+              "kind": "SPAN_KIND_INTERNAL",
+              "startTimeUnixNano": "1795245481959175204",
+              "endTimeUnixNano": "1795245482013486203",
+              "attributes": [
+                {
+                  "key": "spring.security.filterchain.position",
+                  "value": {
+                    "stringValue": "12"
+                  }
+                },
+                {
+                  "key": "spring.security.filterchain.size",
+                  "value": {
+                    "stringValue": "12"
+                  }
+                },
+                {
+                  "key": "spring.security.reached.filter.name",
+                  "value": {
+                    "stringValue": "AuthorizationFilter"
+                  }
+                },
+                {
+                  "key": "spring.security.reached.filter.section",
+                  "value": {
+                    "stringValue": "before"
+                  }
+                }
+              ],
+              "events": [
+                {
+                  "timeUnixNano": "1795245481959000000",
+                  "name": "before DisableEncodeUrlFilter"
+                },
+                {
+                  "timeUnixNano": "1795245481959000000",
+                  "name": "before WebAsyncManagerIntegrationFilter"
+                },
+                {
+                  "timeUnixNano": "1795245481959000000",
+                  "name": "before SecurityContextHolderFilter"
+                },
+                {
+                  "timeUnixNano": "1795245481959000000",
+                  "name": "before HeaderWriterFilter"
+                },
+                {
+                  "timeUnixNano": "1795245481959000000",
+                  "name": "before LogoutFilter"
+                },
+                {
+                  "timeUnixNano": "1795245481959000000",
+                  "name": "before BasicAuthenticationFilter"
+                },
+                {
+                  "timeUnixNano": "1795245482013000000",
+                  "name": "before RequestCacheAwareFilter"
+                },
+                {
+                  "timeUnixNano": "1795245482013000000",
+                  "name": "before SecurityContextHolderAwareRequestFilter"
+                },
+                {
+                  "timeUnixNano": "1795245482013000000",
+                  "name": "before AnonymousAuthenticationFilter"
+                },
+                {
+                  "timeUnixNano": "1795245482013000000",
+                  "name": "before SessionManagementFilter"
+                },
+                {
+                  "timeUnixNano": "1795245482013000000",
+                  "name": "before ExceptionTranslationFilter"
+                },
+                {
+                  "timeUnixNano": "1795245482013000000",
+                  "name": "before AuthorizationFilter"
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "IHNiGF7+Mx9SEJwVvXOX4A==",
+              "spanId": "vBJMvheLp10=",
+              "parentSpanId": "mNx6iJlg27c=",
+              "name": "risk.total",
+              "kind": "SPAN_KIND_INTERNAL",
+              "startTimeUnixNano": "1795245482014632725",
+              "endTimeUnixNano": "1795245482033925569",
+              "status": {}
+            },
+            {
+              "traceId": "IHNiGF7+Mx9SEJwVvXOX4A==",
+              "spanId": "mNx6iJlg27c=",
+              "parentSpanId": "nRi1e5Qb0f8=",
+              "name": "secured request",
+              "kind": "SPAN_KIND_INTERNAL",
+              "startTimeUnixNano": "1795245482013487603",
+              "endTimeUnixNano": "1795245482034288492",
+              "status": {}
+            },
+            {
+              "traceId": "IHNiGF7+Mx9SEJwVvXOX4A==",
+              "spanId": "nRi1e5Qb0f8=",
+              "name": "http post /risk/evaluations",
+              "kind": "SPAN_KIND_SERVER",
+              "startTimeUnixNano": "1795245481959067871",
+              "endTimeUnixNano": "1795245482034369335",
+              "attributes": [
+                {
+                  "key": "exception",
+                  "value": {
+                    "stringValue": "none"
+                  }
+                },
+                {
+                  "key": "method",
+                  "value": {
+                    "stringValue": "POST"
+                  }
+                },
+                {
+                  "key": "outcome",
+                  "value": {
+                    "stringValue": "SUCCESS"
+                  }
+                },
+                {
+                  "key": "status",
+                  "value": {
+                    "stringValue": "200"
+                  }
+                },
+                {
+                  "key": "uri",
+                  "value": {
+                    "stringValue": "/risk/evaluations"
+                  }
+                },
+                {
+                  "key": "http.url",
+                  "value": {
+                    "stringValue": "/risk/evaluations"
+                  }
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "IHNiGF7+Mx9SEJwVvXOX4A==",
+              "spanId": "w3oL7zOWb0o=",
+              "parentSpanId": "vBJMvheLp10=",
+              "name": "risk.scoring",
+              "kind": "SPAN_KIND_INTERNAL",
+              "startTimeUnixNano": "1795245482029323168",
+              "endTimeUnixNano": "1795245482029332648",
+              "status": {}
+            },
+            {
+              "traceId": "IHNiGF7+Mx9SEJwVvXOX4A==",
+              "spanId": "qIYRN2VwL+k=",
+              "parentSpanId": "vBJMvheLp10=",
+              "name": "risk.validation",
+              "kind": "SPAN_KIND_INTERNAL",
+              "startTimeUnixNano": "1795245482016052669",
+              "endTimeUnixNano": "1795245482016120751",
+              "status": {}
+            },
+            {
+              "traceId": "IHNiGF7+Mx9SEJwVvXOX4A==",
+              "spanId": "m7i7LqizOTQ=",
+              "parentSpanId": "0V5NIcv1WmA=",
+              "name": "authenticate usernamepassword",
+              "kind": "SPAN_KIND_INTERNAL",
+              "startTimeUnixNano": "1795245481959329600",
+              "endTimeUnixNano": "1795245482013320217",
+              "attributes": [
+                {
+                  "key": "authentication.failure.type",
+                  "value": {
+                    "stringValue": "n/a"
+                  }
+                },
+                {
+                  "key": "authentication.method",
+                  "value": {
+                    "stringValue": "ProviderManager"
+                  }
+                },
+                {
+                  "key": "authentication.request.type",
+                  "value": {
+                    "stringValue": "UsernamePasswordAuthenticationToken"
+                  }
+                },
+                {
+                  "key": "authentication.result.type",
+                  "value": {
+                    "stringValue": "UsernamePasswordAuthenticationToken"
+                  }
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "IHNiGF7+Mx9SEJwVvXOX4A==",
+              "spanId": "YCc1MHh05Ck=",
+              "parentSpanId": "0V5NIcv1WmA=",
+              "name": "authorize request",
+              "kind": "SPAN_KIND_INTERNAL",
+              "startTimeUnixNano": "1795245482013383329",
+              "endTimeUnixNano": "1795245482013470102",
+              "attributes": [
+                {
+                  "key": "spring.security.authentication.authorities",
+                  "value": {
+                    "stringValue": "[ROLE_ENGINE, FactorGrantedAuthority [authority=FACTOR_PASSWORD, issuedAt=2026-11-21T07:18:02.013192012Z]]"
+                  }
+                },
+                {
+                  "key": "spring.security.authentication.type",
+                  "value": {
+                    "stringValue": "UsernamePasswordAuthenticationToken"
+                  }
+                },
+                {
+                  "key": "spring.security.authorization.decision",
+                  "value": {
+                    "stringValue": "true"
+                  }
+                },
+                {
+                  "key": "spring.security.authorization.decision.details",
+                  "value": {
+                    "stringValue": "AuthorityAuthorizationDecision [granted=true, authorities=[ROLE_ENGINE]]"
+                  }
+                },
+                {
+                  "key": "spring.security.object",
+                  "value": {
+                    "stringValue": "request"
+                  }
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "IHNiGF7+Mx9SEJwVvXOX4A==",
+              "spanId": "7S5dms658zY=",
+              "parentSpanId": "vBJMvheLp10=",
+              "name": "risk.persistence",
+              "kind": "SPAN_KIND_INTERNAL",
+              "startTimeUnixNano": "1795245482029374269",
+              "endTimeUnixNano": "1795245482030733321",
+              "status": {}
+            },
+            {
+              "traceId": "IHNiGF7+Mx9SEJwVvXOX4A==",
+              "spanId": "CV9OzoAuuvM=",
+              "parentSpanId": "qQhEgXOQYRY=",
+              "name": "evalsha",
+              "kind": "SPAN_KIND_CLIENT",
+              "startTimeUnixNano": "1795245482026067648",
+              "endTimeUnixNano": "1795245482027127867",
+              "attributes": [
+                {
+                  "key": "db.operation",
+                  "value": {
+                    "stringValue": "EVALSHA"
+                  }
+                },
+                {
+                  "key": "db.system",
+                  "value": {
+                    "stringValue": "redis"
+                  }
+                },
+                {
+                  "key": "net.sock.peer.addr",
+                  "value": {
+                    "stringValue": "redis"
+                  }
+                },
+                {
+                  "key": "net.sock.peer.port",
+                  "value": {
+                    "stringValue": "6379"
+                  }
+                },
+                {
+                  "key": "net.transport",
+                  "value": {
+                    "stringValue": "IP.TCP"
+                  }
+                },
+                {
+                  "key": "peer.service",
+                  "value": {
+                    "stringValue": "Redis"
+                  }
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "IHNiGF7+Mx9SEJwVvXOX4A==",
+              "spanId": "oXuvIh9o7Ss=",
+              "parentSpanId": "nRi1e5Qb0f8=",
+              "name": "security filterchain after",
+              "kind": "SPAN_KIND_INTERNAL",
+              "startTimeUnixNano": "1795245482034296272",
+              "endTimeUnixNano": "1795245482034343454",
+              "attributes": [
+                {
+                  "key": "spring.security.filterchain.position",
+                  "value": {
+                    "stringValue": "12"
+                  }
+                },
+                {
+                  "key": "spring.security.filterchain.size",
+                  "value": {
+                    "stringValue": "12"
+                  }
+                },
+                {
+                  "key": "spring.security.reached.filter.name",
+                  "value": {
+                    "stringValue": "DisableEncodeUrlFilter"
+                  }
+                },
+                {
+                  "key": "spring.security.reached.filter.section",
+                  "value": {
+                    "stringValue": "after"
+                  }
+                }
+              ],
+              "events": [
+                {
+                  "timeUnixNano": "1795245482034000000",
+                  "name": "after AuthorizationFilter"
+                },
+                {
+                  "timeUnixNano": "1795245482034000000",
+                  "name": "after ExceptionTranslationFilter"
+                },
+                {
+                  "timeUnixNano": "1795245482034000000",
+                  "name": "after SessionManagementFilter"
+                },
+                {
+                  "timeUnixNano": "1795245482034000000",
+                  "name": "after AnonymousAuthenticationFilter"
+                },
+                {
+                  "timeUnixNano": "1795245482034000000",
+                  "name": "after SecurityContextHolderAwareRequestFilter"
+                },
+                {
+                  "timeUnixNano": "1795245482034000000",
+                  "name": "after RequestCacheAwareFilter"
+                },
+                {
+                  "timeUnixNano": "1795245482034000000",
+                  "name": "after BasicAuthenticationFilter"
+                },
+                {
+                  "timeUnixNano": "1795245482034000000",
+                  "name": "after LogoutFilter"
+                },
+                {
+                  "timeUnixNano": "1795245482034000000",
+                  "name": "after HeaderWriterFilter"
+                },
+                {
+                  "timeUnixNano": "1795245482034000000",
+                  "name": "after SecurityContextHolderFilter"
+                },
+                {
+                  "timeUnixNano": "1795245482034000000",
+                  "name": "after WebAsyncManagerIntegrationFilter"
+                },
+                {
+                  "timeUnixNano": "1795245482034000000",
+                  "name": "after DisableEncodeUrlFilter"
+                }
+              ],
+              "status": {}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
