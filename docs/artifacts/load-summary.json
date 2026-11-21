@@ -1,0 +1,57 @@
+[
+  {
+    "scenario": "steady",
+    "requests": 327,
+    "throughput": 21.553350783213066,
+    "p50ms": 74.559792,
+    "p95ms": 117.3432155,
+    "p99ms": 173.03364030000003,
+    "errorRate": 0,
+    "checks": 1,
+    "correctnessFailures": 0
+  },
+  {
+    "scenario": "burst",
+    "requests": 361,
+    "throughput": 23.860817102116105,
+    "p50ms": 298.960594,
+    "p95ms": 391.48255,
+    "p99ms": 400.60812639999983,
+    "errorRate": 0,
+    "checks": 1,
+    "correctnessFailures": 0
+  },
+  {
+    "scenario": "concurrency",
+    "requests": 391,
+    "throughput": 25.57292273244185,
+    "p50ms": 479.485244,
+    "p95ms": 499.8941835,
+    "p99ms": 589.603387,
+    "errorRate": 0,
+    "checks": 1,
+    "correctnessFailures": 0
+  },
+  {
+    "scenario": "duplicate",
+    "requests": 466,
+    "throughput": 30.764009144902754,
+    "p50ms": 111.455289,
+    "p95ms": 175.34849125,
+    "p99ms": 181.35271545,
+    "errorRate": 0,
+    "checks": 1,
+    "correctnessFailures": 0
+  },
+  {
+    "scenario": "velocity",
+    "requests": 459,
+    "throughput": 30.376227634244504,
+    "p50ms": 109.244674,
+    "p95ms": 170.42447349999998,
+    "p99ms": 180.42736086,
+    "errorRate": 0,
+    "checks": 1,
+    "correctnessFailures": 0
+  }
+]
