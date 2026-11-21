@@ -62,6 +62,11 @@ class FoundationIT {
         long deadline=System.nanoTime()+TimeUnit.SECONDS.toNanos(3);
         while(Boolean.TRUE.equals(template.hasKey(key)) && System.nanoTime()<deadline) Thread.sleep(25);
         assertFalse(template.hasKey(key));
+        Payment boundary=payment("syn_processingdelay","syn_delaydevice",t,100);
+        assertEquals(1,velocity.register(boundary,t)[0]);assertEquals(1,velocity.register(boundary,t.plusSeconds(300))[0]);
+        velocity.register(payment("syn_cleanup","syn_cleanupdevice",t,100),t);
+        assertEquals(1,velocity.register(payment("syn_cleanup","syn_cleanupdevice",t.plusSeconds(4201),100),t.plusSeconds(4201))[2]);
+        assertEquals(1L,template.opsForZSet().zCard(VelocityStore.customerKey("syn_cleanup")));
     }
     @Test void amountDeviceAndLateEventsAreSafe() {
         Instant now=Instant.now().truncatedTo(java.time.temporal.ChronoUnit.MILLIS);

@@ -1,7 +1,7 @@
 name: RiskShield verification
 on:
   push:
-    branches: [feature/risk-decisioning-foundation, dev]
+    branches: [dev]
   pull_request:
     branches: [dev, main]
 permissions:

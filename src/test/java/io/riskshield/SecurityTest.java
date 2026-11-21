@@ -32,4 +32,7 @@ class SecurityTest {
         mvc.perform(get("/risk/reviews").with(org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.httpBasic("analyst","test-only-password-not-for-deployment"))).andExpect(status().isOk());
         mvc.perform(get("/risk/reviews").with(org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.httpBasic("analyst","wrong-password"))).andExpect(status().isUnauthorized());
     }
+    @Test void oversizedAuthenticatedRequestIs413() throws Exception {
+        mvc.perform(post("/risk/evaluations").with(user("engine").roles("ENGINE")).contentType("application/json").content("x".repeat(32769))).andExpect(status().isPayloadTooLarge());
+    }
 }

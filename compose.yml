@@ -67,7 +67,9 @@ services:
     command: [-config.file=/etc/tempo.yml]
     volumes: [./monitoring/tempo.yml:/etc/tempo.yml:ro]
     ports: ["127.0.0.1:13200:3200"]
-    mem_limit: 192m
+    environment:
+      GOMEMLIMIT: 384MiB
+    mem_limit: 512m
   k6:
     image: grafana/k6:2.4.0@sha256:70949facc324f13a8903d24ee5b817ff32aca02bda3458389611e6aa4b38a097
     profiles: [load]
