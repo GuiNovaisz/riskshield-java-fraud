@@ -1,0 +1,83 @@
+name: riskshield
+services:
+  app:
+    build: .
+    image: riskshield:0.1.0-dev
+    ports: ["127.0.0.1:28080:8080"]
+    environment:
+      DB_URL: jdbc:postgresql://postgres:5432/riskshield
+      DB_PASSWORD: ${DB_PASSWORD:?Generate .env using scripts/dev-up.ps1}
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      OTEL_ENDPOINT: http://otel-collector:4318/v1/traces
+      ENGINE_PASSWORD: ${ENGINE_PASSWORD:?required}
+      ANALYST_PASSWORD: ${ANALYST_PASSWORD:?required}
+      AUDITOR_PASSWORD: ${AUDITOR_PASSWORD:?required}
+      ADMIN_A_PASSWORD: ${ADMIN_A_PASSWORD:?required}
+      ADMIN_B_PASSWORD: ${ADMIN_B_PASSWORD:?required}
+    depends_on:
+      postgres: {condition: service_healthy}
+      redis: {condition: service_started}
+      otel-collector: {condition: service_started}
+    mem_limit: 768m
+    cpus: 2
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    stop_grace_period: 30s
+  postgres:
+    image: postgres:18.1-alpine@sha256:d326bec58d3de8d239df60475941522342723934a2598ae59a0281f077681462
+    environment:
+      POSTGRES_DB: riskshield
+      POSTGRES_USER: riskshield
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?required}
+    volumes: [pg-data:/var/lib/postgresql]
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U riskshield -d riskshield"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+    mem_limit: 384m
+  redis:
+    image: redis:8.4.0-alpine@sha256:e9a8794f6d9d48751f76eeff9b8402405e208d043b35602a33ea415e7cff347c
+    command: [redis-server, --maxmemory, 128mb, --maxmemory-policy, noeviction, --appendonly, "yes"]
+    volumes: [redis-data:/data]
+    mem_limit: 192m
+  prometheus:
+    image: prom/prometheus:v3.8.0@sha256:67abe619da66a6b14cc0e185205f93a29d5b03cedd1aaa06930745b21f95a374
+    volumes: [./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro, ./monitoring/alerts.yml:/etc/prometheus/alerts.yml:ro]
+    ports: ["127.0.0.1:19090:9090"]
+    mem_limit: 192m
+  grafana:
+    image: grafana/grafana:12.3.0@sha256:793c8719b0043ed885d1e75200a62d8adf63f0eae00f6f12b7a98eb7293a525c
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD:?required}
+      GF_USERS_ALLOW_SIGN_UP: "false"
+    ports: ["127.0.0.1:13000:3000"]
+    volumes: [./monitoring/grafana:/etc/grafana/provisioning:ro]
+    mem_limit: 192m
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:0.140.0@sha256:965d56b14e7eb4f431e692e2a3d8aba7f6078fb31f5587c7b26e57622be479c0
+    command: [--config=/etc/otelcol/config.yml]
+    volumes: [./monitoring/otel.yml:/etc/otelcol/config.yml:ro]
+    mem_limit: 128m
+  tempo:
+    image: grafana/tempo:2.9.0@sha256:b025a4a4db0a58cc94e2abfab59751f92d74ab8cc024d2e6025ba7efb87bbaff
+    command: [-config.file=/etc/tempo.yml]
+    volumes: [./monitoring/tempo.yml:/etc/tempo.yml:ro]
+    ports: ["127.0.0.1:13200:3200"]
+    environment:
+      GOMEMLIMIT: 384MiB
+    mem_limit: 512m
+  k6:
+    image: grafana/k6:2.4.0@sha256:70949facc324f13a8903d24ee5b817ff32aca02bda3458389611e6aa4b38a097
+    profiles: [load]
+    environment:
+      BASE_URL: http://app:8080
+      ENGINE_PASSWORD: ${ENGINE_PASSWORD:?required}
+    volumes: [./load:/scripts:ro, ./work/load:/results]
+    mem_limit: 128m
+volumes:
+  pg-data:
+  redis-data:

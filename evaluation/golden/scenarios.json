@@ -1,0 +1,12 @@
+[
+  {"id":"G1_NORMAL","velocity":1,"newDevice":false,"amountSpike":false,"shared":1,"late":false,"score":0,"decision":"APPROVE"},
+  {"id":"G2_NEW_DEVICE","velocity":1,"newDevice":true,"amountSpike":false,"shared":1,"late":false,"score":18,"decision":"APPROVE"},
+  {"id":"G3_TAKEOVER","velocity":1,"newDevice":true,"amountSpike":true,"shared":1,"late":false,"score":50,"decision":"REVIEW"},
+  {"id":"G4_RAPID_ATTEMPTS","velocity":6,"newDevice":false,"amountSpike":false,"shared":1,"late":false,"score":35,"decision":"REVIEW"},
+  {"id":"G5_DEVICE_SHARING","velocity":1,"newDevice":false,"amountSpike":false,"shared":4,"late":false,"score":35,"decision":"REVIEW"},
+  {"id":"G6_COMBINED_ATTACK","velocity":12,"newDevice":true,"amountSpike":true,"shared":4,"late":false,"score":100,"decision":"BLOCK"},
+  {"id":"G7_PERSONAL_SPIKE","velocity":1,"newDevice":false,"amountSpike":true,"shared":1,"late":false,"score":32,"decision":"REVIEW"},
+  {"id":"G8_KNOWN_BEHAVIOR","velocity":2,"newDevice":false,"amountSpike":false,"shared":1,"late":false,"score":0,"decision":"APPROVE"},
+  {"id":"G9_LATE","velocity":0,"newDevice":false,"amountSpike":false,"shared":0,"late":true,"score":0,"decision":"REVIEW"},
+  {"id":"G10_SUSTAINED_ATTACK","velocity":12,"newDevice":true,"amountSpike":false,"shared":1,"late":false,"score":73,"decision":"BLOCK"}
+]
